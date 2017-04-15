@@ -1,8 +1,8 @@
-## Welcome to GitHub Pages
+## Welcome to Eon 22
 
-You can use the [editor on GitHub](https://github.com/eon22/eon22/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+It is the 22nd century and humanity has progressed to a post-industrial dystopia.
+Eon 22 details the history, geography, and people of this fictional universe.
+If you are you looking to read science fiction short stories, get inspiration for a world of your own, or find a setting for role your playing games, you have made to the right place.
 
 ### Markdown
 
