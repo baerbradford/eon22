@@ -49,3 +49,5 @@ Inspiration: List of Superhuman Features and Abilities in Fiction
 ## 2130s
 
 Earth being a wasteland severely limits resources and foodstuffs being exported to the moon. Corporate executives refuse to cut back on their lifestyles while famine becomes a serious concern for many corporate citizens. 
+
+[~20-30 years of civil war style in-fighting so that corporate power can regress, space travel becomes less frequent / more expensive, and we’re left with abandoned military installations / weaponry for most of the series.]
