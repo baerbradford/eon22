@@ -22,6 +22,9 @@ If you are you looking to read science fiction short stories, get inspiration fo
 
 ### Locations
 
+* [The Moon](/locations/moon)
+    * [Crisium Lunar Colony](/locations/crisium_lunar_colony)
+
 ### Objects
 
 ### People
