@@ -7,7 +7,7 @@ permalink: people/alex_da_fonte
 
 ## Overview
 
-Born in [Crisium](/locations/crisium_lunar_colony) on [May 17, 2091](/events/timeline) to a wealthy family. He never travels to Earth.
+Born in [Crisium](/locations/crisium_lunar_colony) on [May 17, 2091](/events/timeline#2090s) to a wealthy family. He never travels to Earth.
  
 ### Personality
 
