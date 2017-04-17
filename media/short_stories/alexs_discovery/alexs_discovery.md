@@ -1,3 +1,7 @@
+---
+permalink: media/short_stories/alexs_discovery
+---
+
 # Alex's Discovery
 
 A teenaged boy grows up on the moon.
