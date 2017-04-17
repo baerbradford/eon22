@@ -44,7 +44,8 @@ Belonging to no faction or too horrified with the disasters witnesses in their l
 ## 2120s
 
 A variety of asteroid-inhabiting snake species are discovered during a mining operation. Their venom is a unique organic compound which genetically modifies humans’ DNA, imbuing them with abilities and powers previously believed to superhuman.
-Inspiration: List of Superhuman Features and Abilities in Fiction
+
+[Inspiration: List of Superhuman Features and Abilities in Fiction](https://en.wikipedia.org/wiki/List_of_superhuman_features_and_abilities_in_fiction)
 
 ## 2130s
 
