@@ -28,3 +28,24 @@ The space age is nigh. Colonization of many planets and moons is rapidly becomin
 The large city on the [Moon](/locations/moon) gets bigger, and is a place for the ultra elite and powerful. Due to incredible communications technology breakthroughs and distance from government regulation, most corporations are run from the moon. Humans living on Earth are getting poorer while wealth concentrates on the moon.
 
 |2091|May 17|[Alexander da Fonte](/people/alex_da_fonte) is born.|
+
+## 2100s
+
+## 2110s
+
+### 2111-2114 [Alex’s Discovery]
+
+### 2115
+
+Conflict between corporate and government interests finally come to a head and result in the nuclear destruction of the vast majority of Earth. Corporations based on the moon are victorious; governments are a thing of history; the destitute and losers are left to deal with the (literal) fallout of humanity’s greatest war.
+
+Belonging to no faction or too horrified with the disasters witnesses in their lifetime, a small sect of people flee to the Martian frontier under the leadership of Lila Peres (Israeli heir to Sol Industries) and Charles Storm (American born, corporate fighter, revered Martian founder, deeply involved in all factions). Here, they develop what is intended to be a peaceful and isolated society.
+
+## 2120s
+
+A variety of asteroid-inhabiting snake species are discovered during a mining operation. Their venom is a unique organic compound which genetically modifies humans’ DNA, imbuing them with abilities and powers previously believed to superhuman.
+Inspiration: List of Superhuman Features and Abilities in Fiction
+
+## 2130s
+
+Earth being a wasteland severely limits resources and foodstuffs being exported to the moon. Corporate executives refuse to cut back on their lifestyles while famine becomes a serious concern for many corporate citizens. 
