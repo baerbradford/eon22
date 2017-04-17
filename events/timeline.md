@@ -21,4 +21,4 @@ The space age is nigh. Colonization of many planets and moons is rapidly becomin
 
 ## 2090s
 
-The large city on the [Moon](/locations/moon.md) gets bigger, and is a place for the ultra elite and powerful. Due to incredible communications technology breakthroughs and distance from government regulation, most corporations are run from the moon. Humans living on Earth are getting poorer while wealth concentrates on the moon.
+The large city on the [Moon](permalink:/locations/moon.md) gets bigger, and is a place for the ultra elite and powerful. Due to incredible communications technology breakthroughs and distance from government regulation, most corporations are run from the moon. Humans living on Earth are getting poorer while wealth concentrates on the moon.
