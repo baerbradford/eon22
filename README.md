@@ -27,6 +27,8 @@ If you are you looking to read science fiction short stories, get inspiration fo
 
 ### Objects
 
+* [MIC 5](/objects/mic5)
+
 ### People
 
 * [Alex da Fonte](/people/alex_da_fonte)
