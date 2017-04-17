@@ -1,3 +1,7 @@
+---
+permalink: locations/crisium_lunar_colony
+---
+
 # Crisium Lunar Colony
 
 **Crisium Lunar Colony**, often called **Crisium Colony** or simply **Crisium**, is the most populous colony on the [Moon](/locations/moon). Located at the eastern rim of [Mare Crisium](https://en.wikipedia.org/wiki/Mare_Crisium), **Crisium** is an agglomeration of airtight buildings comprising the largest indoor area built by [humans](https://en.wikipedia.org/wiki/Homo_sapiens).
