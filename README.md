@@ -26,4 +26,6 @@ If you are you looking to read science fiction short stories, get inspiration fo
 
 ### People
 
+* [Alex da Fonte](/people/alex_da_fonte)
+
 ### Species
