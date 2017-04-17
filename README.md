@@ -10,7 +10,7 @@ If you are you looking to read science fiction short stories, get inspiration fo
 
 ### Short Stories
 
-Alex's Discovery
+[Alex's Discovery](/media/short_stories/alexs_discovery)
 
 ## Universe
 
