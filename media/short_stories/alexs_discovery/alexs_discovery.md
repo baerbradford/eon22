@@ -11,12 +11,21 @@ The robot, [Michelle](/objects/mic5#michelle) acts as a teacher, protector, pare
 
 ## Chapters
 
-### Alex’s 10th Birthday
+### The Big One-Oh
 
-Establish setting.
-Well-to-do high population city on the moon.
-May 2111.
-Introduce Michelle.
+"Alex, it's time to wake up."
+
+He cracked his eyes open and the blurry room came into existence.
+Less than a second elapsed and the room came into focus.
+Alex realized Michelle was sitting in the chair next to his bed beaming at him.
+He always found comfort in her eyes and warm smile.
+
+"Happy birthday! Hustle up and get ready. Your father is waiting downstairs and breakfast will be ready soon."
+
+* Establish setting.
+* Well-to-do high population city on the moon.
+* May 2111.
+* Introduce Michelle.
 
 ### 5th Year
 
