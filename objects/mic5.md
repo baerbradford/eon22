@@ -1,8 +1,8 @@
---
+---
 permalink: objects/mic5
---
+---
 
-# Mic 5
+# MIC 5
 
 *Mentor-Instructor-Counselor Series 5*
 
