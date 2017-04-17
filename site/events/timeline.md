@@ -1,3 +1,7 @@
+---
+permalink: events/timeline
+---
+
 # Timeline
 
 ## 2020s
