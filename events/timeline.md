@@ -31,9 +31,9 @@ The large city on the [Moon](/locations/moon) gets bigger, and is a place for th
 
 ## 2100s
 
-## 2110s
+### 2101-2104 [Alex’s Discovery](/media/short_stories/alexs_discovery)
 
-### 2111-2114 [Alex’s Discovery](/media/short_stories/alexs_discovery)
+## 2110s
 
 ### 2115
 
