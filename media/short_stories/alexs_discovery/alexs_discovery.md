@@ -22,6 +22,7 @@ He always found comfort in her eyes and warm smile.
 
 "Happy birthday! Hustle up and get ready. Your father is waiting downstairs and breakfast will be ready soon."
 
+Alex sat up on the edge of the bed and put his feet on the floor.
 * Establish setting.
 * Well-to-do high population city on the moon.
 * May 2111.
