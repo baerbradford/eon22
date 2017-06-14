@@ -23,6 +23,12 @@ He always found comfort in her eyes and warm smile.
 "Happy birthday! Hustle up and get ready. Your father is waiting downstairs and breakfast will be ready soon."
 
 Alex sat up on the edge of the bed and put his feet on the floor.
+
+A few steps away was several feet and several layers of plastic and metal arranged to produce a large window.
+Alex knew he was fortunate to have a window; his father always told him so.
+Each morning he would take the few steps and stare out into the distance trying... longing to appreciate it.
+The landscape sprawling out in front of him looked desolate.
+
 * Establish setting.
 * Well-to-do high population city on the moon.
 * May 2111.
