@@ -27,7 +27,16 @@ Alex sat up on the edge of the bed and put his feet on the floor.
 A few steps away was several feet and several layers of plastic and metal arranged to produce a large window.
 Alex knew he was fortunate to have a window; his father always told him so.
 Each morning he would take the few steps and stare out into the distance trying... longing to appreciate it.
-The landscape sprawling out in front of him looked desolate.
+The landscape sprawling out in front of him looked desolate. 
+What was so great about it anyway?
+The dirt never moved, not that he had ever seen.
+Sometimes you would see ships coming and going.
+Otherwise, he wasn't sure what Dad loved about staring into the void.
+There didn't seem to be much out there...
+
+"Alex, you need to get ready," Michelle reminded him.
+Still lingering, she snapped him back to reality.
+Let the boy have his moment but keep him on track.
 
 * Establish setting.
 * Well-to-do high population city on the moon.
