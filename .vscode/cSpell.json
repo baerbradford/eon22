@@ -7,8 +7,11 @@
     // words - list of words to be always considered correct
     "words": [
         "Baer",
+        "baerbradford",
         "crossorigin",
         "dystopian",
+        "easypiechart",
+        "favicon",
         "jsvalidate"
     ],
     // flagWords - list of words to be always considered incorrect
