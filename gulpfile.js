@@ -98,3 +98,7 @@ gulp.task('serve', [], function() {
     return gulp.src('docs')
         .pipe(webServer(webConfig));
 });
+
+gulp.task('watch', [], function() {
+    return gulp.watch(['content/**'], ['default']);
+});
