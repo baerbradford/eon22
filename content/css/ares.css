@@ -12,7 +12,7 @@ body {
     color: #e8f4ff;
     font-family: 'Open Sans', sans-serif;
     font-size: 13px;
-    background-image: url(../img/bg_ares.jpg);
+    background-image: url(img/bg_ares.jpg);
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -258,7 +258,7 @@ a.link-sf:active:before {
     height: 52%;
     top: 24%;
     left: 24%;
-    background: rgba(98, 208, 240, .02) url(../img/bg_circle_0.png) center center no-repeat;
+    background: rgba(98, 208, 240, .02) url(img/bg_circle_0.png) center center no-repeat;
     -webkit-animation: spin 80s infinite linear;
     animation: spin 80s infinite linear;
 }
