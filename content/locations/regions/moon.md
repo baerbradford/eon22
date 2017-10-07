@@ -1,5 +1,6 @@
----
-permalink: locations/moon
+{
+    "title": "Eon 22 - Moon"
+}
 ---
 
 # Moon
