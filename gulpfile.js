@@ -35,7 +35,7 @@ function string_src(filename, string) {
     return src
 }
 
-gulp.task('build', ['clean', 'cname', 'css', 'homepage', 'generate-regions', 'img', 'js']);
+gulp.task('build', ['clean', 'css', 'homepage', 'generate-regions', 'img', 'js']);
 
 gulp.task('clean', ['clean-docs'])
 
@@ -44,10 +44,10 @@ gulp.task('clean-docs', function() {
         .pipe(clean());
 });
 
-gulp.task('cname', ['clean'], function() {
-    return string_src("CNAME", "eon22.com")
-        .pipe(gulp.dest('docs/'))
-});
+// gulp.task('cname', ['clean'], function() {
+//     return string_src("CNAME", "eon22.com")
+//         .pipe(gulp.dest('docs/'))
+// });
 
 gulp.task('css', ['clean'], function() {
     gulp.src([
@@ -67,7 +67,7 @@ gulp.task('homepage', ['clean', 'generate-regions', 'register-partials'], functi
         .pipe(tap(function(file) {
             var template = handlebars.compile(file.contents.toString());
             var regions = Object.keys(metadata.regions).map(function(key) { return metadata.regions[key]; });
-            regions.sort(function(a, b) { return (a.title < b.title) ? 1 : ((b.title < a.title) ? -1 : 0); });
+            regions.sort(function(a, b) { return (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0); });
             var html = template({
                 regions: regions
             });
