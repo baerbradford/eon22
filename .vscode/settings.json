@@ -4,7 +4,8 @@
         "crisium",
         "easypiechart",
         "favicon",
-        "fonte"
+        "fonte",
+        "gutil"
     ],
     "eslint.enable": false
 }

@@ -3,6 +3,7 @@ var clean = require('gulp-clean');
 var concat = require('gulp-concat');
 var cssMin = require('gulp-minify-css');
 var gulp = require('gulp');
+var gutil = require('gulp-util');
 var handlebars = require('Handlebars');
 var jsValidate = require('gulp-jsvalidate');
 var markdown = require('gulp-markdown');
@@ -20,13 +21,32 @@ var metadataDefaults = {
     title: "Eon 22"
 }
 
-gulp.task('build', ['clean', 'css', 'homepage', 'generate-region-pages', 'img', 'js']);
+function string_src(filename, string) {
+    var src = require('stream').Readable({ objectMode: true })
+    src._read = function() {
+        this.push(new gutil.File({
+            cwd: "",
+            base: "",
+            path: filename,
+            contents: new Buffer(string)
+        }))
+        this.push(null)
+    }
+    return src
+}
+
+gulp.task('build', ['clean', 'cname', 'css', 'homepage', 'generate-region-pages', 'img', 'js']);
 
 gulp.task('clean', ['clean-docs'])
 
 gulp.task('clean-docs', function() {
     return gulp.src('docs', { read: false })
         .pipe(clean());
+});
+
+gulp.task('cname', ['clean'], function() {
+    return string_src("CNAME", "eon22.com")
+        .pipe(gulp.dest('docs/'))
 });
 
 gulp.task('css', ['clean'], function() {

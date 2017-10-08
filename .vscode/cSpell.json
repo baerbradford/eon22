@@ -14,6 +14,7 @@
         "easypiechart",
         "favicon",
         "fonte",
+        "gutil",
         "jsvalidate"
     ],
     // flagWords - list of words to be always considered incorrect
