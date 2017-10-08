@@ -10,7 +10,7 @@
                     <div class="text-success animated infinite pulse pull-right">[LIVE]</div>
                 </div> --}}
                 <h1 class="h3 font-w200">
-                    <span class="text-crystal">//</span> <a class="link-sf font-w300" href="index.html">EON 22</a>
+                    <span class="text-crystal">//</span> <a class="link-sf font-w300" href="./">EON 22</a>
                 </h1>
             </header>
             <!-- END Header -->
@@ -129,41 +129,19 @@
                                 <h2 class="block-title visibility-hidden" data-toggle="appear" data-class="animated fadeInDown">Locations</h2>
                             </div>
                             <div class="block-content">
-                                <div class="row items-push overflow-hidden">
-                                    <div class="col-xs-4 text-center visibility-hidden" data-toggle="appear" data-class="animated fadeInLeft" data-timeout="200">
-                                        <div class="js-pie-chart pie-chart" data-percent="100" data-line-width="22" data-size="51" data-bar-color="rgba(255, 255, 255, .2)" data-track-color="#3673cc">
-                                            <span class="font-s16 font-w600"></span>
+                                {{# each regions }}
+                                    <div class="row items-push overflow-hidden">
+                                        <div class="col-xs-4 text-center visibility-hidden" data-toggle="appear" data-class="animated fadeInLeft" data-timeout="200">
+                                            <div class="js-pie-chart pie-chart" data-percent="100" data-line-width="{{ planetLineWidth }}" data-size="{{ planetSize }}" data-bar-color="rgba(255, 255, 255, .2)" data-track-color="{{ planetColor }}">
+                                                <span class="font-s16 font-w600"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-8 visibility-hidden" data-toggle="appear" data-class="animated fadeInRight" data-timeout="500">
+                                            <div class="text-uppercase font-w600 text-white-op"><a href="{{url}}">{{ linkTitle }}</a></div>
+                                            {{!-- <div class="font-s36 font-w300">1.62 <span class="font-s16 font-w400 text-crystal">L.Y.</span></div> --}}
                                         </div>
                                     </div>
-                                    <div class="col-xs-8 visibility-hidden" data-toggle="appear" data-class="animated fadeInRight" data-timeout="500">
-                                        <div class="text-uppercase font-w600 text-white-op">Earth</div>
-                                        {{!-- <div class="font-s36 font-w300">1.62 <span class="font-s16 font-w400 text-crystal">L.Y.</span></div> --}}
-                                    </div>
-                                </div>
-
-                                <div class="row items-push overflow-hidden">
-                                    <div class="col-xs-4 text-center visibility-hidden" data-toggle="appear" data-class="animated fadeInLeft" data-timeout="300">
-                                        <div class="js-pie-chart pie-chart" data-percent="100" data-line-width="6" data-size="14" data-bar-color="rgba(255, 255, 255, .2)" data-track-color="#f7c880">
-                                            <span class="font-s16 font-w600"></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-8 visibility-hidden" data-toggle="appear" data-class="animated fadeInRight" data-timeout="600">
-                                        <div class="text-uppercase font-w600 text-white-op">Moon</div>
-                                        {{!-- <div class="font-s36 font-w300">2.22 <span class="font-s16 font-w400 text-crystal">L.Y.</span></div> --}}
-                                    </div>
-                                </div>
-                                
-                                <div class="row items-push overflow-hidden">
-                                    <div class="col-xs-4 text-center visibility-hidden" data-toggle="appear" data-class="animated fadeInLeft" data-timeout="100">
-                                        <div class="js-pie-chart pie-chart" data-percent="100" data-line-width="12" data-size="27" data-bar-color="rgba(255, 255, 255, .2)" data-track-color="#c07635">
-                                            <span class="font-s16 font-w600"></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-8 visibility-hidden" data-toggle="appear" data-class="animated fadeInRight" data-timeout="400">
-                                        <div class="text-uppercase font-w600 text-white-op">Mars</div>
-                                        {{!-- <div class="font-s36 font-w300">1.67 <span class="font-s16 font-w400 text-crystal">L.Y.</span></div> --}}
-                                    </div>
-                                </div>
+                                {{/each}}
                             </div>
                         </div>
                         <!-- END Planets -->

@@ -15,7 +15,7 @@ var uglify = require('gulp-uglify');
 var webServer = require('gulp-webserver');
 
 var metadata = {
-    pages: {}
+    regions: {}
 };
 var metadataDefaults = {
     title: "Eon 22"
@@ -35,7 +35,7 @@ function string_src(filename, string) {
     return src
 }
 
-gulp.task('build', ['clean', 'cname', 'css', 'homepage', 'generate-region-pages', 'img', 'js']);
+gulp.task('build', ['clean', 'cname', 'css', 'homepage', 'generate-regions', 'img', 'js']);
 
 gulp.task('clean', ['clean-docs'])
 
@@ -62,11 +62,15 @@ gulp.task('css', ['clean'], function() {
 
 gulp.task('default', ['build']);
 
-gulp.task('homepage', ['clean', 'register-partials'], function() {
+gulp.task('homepage', ['clean', 'generate-regions', 'register-partials'], function() {
     return gulp.src('content/templates/index.hbs')
         .pipe(tap(function(file) {
             var template = handlebars.compile(file.contents.toString());
-            var html = template({});
+            var regions = Object.keys(metadata.regions).map(function(key) { return metadata.regions[key]; });
+            regions.sort(function(a, b) { return (a.title < b.title) ? 1 : ((b.title < a.title) ? -1 : 0); });
+            var html = template({
+                regions: regions
+            });
             file.contents = new Buffer(html, 'utf-8');
         }))
         .pipe(rename(function(path) {
@@ -75,7 +79,7 @@ gulp.task('homepage', ['clean', 'register-partials'], function() {
         .pipe(gulp.dest('docs'));
 });
 
-gulp.task('generate-region-pages', ['clean', 'register-partials'], function() {
+gulp.task('generate-regions', ['clean', 'register-partials'], function() {
     return gulp.src('content/templates/region.hbs')
         .pipe(tap(function(file) {
             var template = handlebars.compile(file.contents.toString());
@@ -86,6 +90,10 @@ gulp.task('generate-region-pages', ['clean', 'register-partials'], function() {
                     var fileContent = file.contents.toString();
                     var data = {
                         content: file.contents.toString(),
+                        linkTitle: 'Unknown Region',
+                        planetColor: "#3673cc",
+                        planetLineWidth: 22,
+                        planetSize: 51,
                         name: fileName,
                         title: metadataDefaults.title,
                         url: file.relative.replace('.md', '')
@@ -93,6 +101,18 @@ gulp.task('generate-region-pages', ['clean', 'register-partials'], function() {
                     var index = fileContent.indexOf('---');
                     if (index !== -1) {
                         var dataOverride = JSON.parse(fileContent.slice(0, index));
+                        if (dataOverride.linkTitle) {
+                            data.linkTitle = dataOverride.linkTitle;
+                        }
+                        if (dataOverride.planetColor) {
+                            data.planetColor = dataOverride.planetColor;
+                        }
+                        if (dataOverride.planetLineWidth) {
+                            data.planetLineWidth = dataOverride.planetLineWidth;
+                        }
+                        if (dataOverride.planetSize) {
+                            data.planetSize = dataOverride.planetSize;
+                        }
                         if (dataOverride.title) {
                             data.title = dataOverride.title;
                         }
@@ -101,13 +121,13 @@ gulp.task('generate-region-pages', ['clean', 'register-partials'], function() {
                         data.content = fileContent;
                     }
 
-                    metadata.pages[data.name] = data;
+                    metadata.regions[data.name] = data;
                     file.contents = new Buffer(fileContent, 'utf-8');
                 }))
                 .pipe(markdown())
                 .pipe(tap(function(file) {
                     var fileName = path.basename(file.path, '.html');
-                    var data = metadata.pages[fileName];
+                    var data = metadata.regions[fileName];
                     data.content = file.contents.toString();
                     var html = template(data);
                     file.contents = new Buffer(html, 'utf-8');
@@ -129,7 +149,7 @@ gulp.task('js', ['clean'], function() {
             'content/js/ares.js'
         ])
         .pipe(jsValidate())
-        .pipe(uglify())
+        // .pipe(uglify())
         .pipe(concat('main.min.js'))
         .pipe(gulp.dest('docs'));
 });

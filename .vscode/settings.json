@@ -5,7 +5,8 @@
         "easypiechart",
         "favicon",
         "fonte",
-        "gutil"
+        "gutil",
+        "rgba"
     ],
     "eslint.enable": false
 }
