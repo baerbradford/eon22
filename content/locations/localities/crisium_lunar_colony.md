@@ -1,5 +1,6 @@
----
-permalink: locations/crisium_lunar_colony
+{
+    "title": "Crisium Lunar Colony"
+}
 ---
 
 # Crisium Lunar Colony

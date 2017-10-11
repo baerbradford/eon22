@@ -6,6 +6,7 @@
         "favicon",
         "fonte",
         "gutil",
+        "megacity",
         "rgba"
     ],
     "eslint.enable": false

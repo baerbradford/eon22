@@ -35,7 +35,16 @@ function string_src(filename, string) {
     return src
 }
 
-gulp.task('build', ['clean', 'cname', 'css', 'homepage', 'generate-regions', 'img', 'js']);
+gulp.task('build', [
+    'clean',
+    'cname',
+    'css',
+    'homepage',
+    'generate-localities',
+    'generate-regions',
+    'img',
+    'js'
+]);
 
 gulp.task('clean', ['clean-docs'])
 
@@ -79,7 +88,7 @@ gulp.task('homepage', ['clean', 'generate-regions', 'register-partials'], functi
         .pipe(gulp.dest('docs'));
 });
 
-gulp.task('generate-regions', ['clean', 'register-partials'], function() {
+gulp.task('generate-regions', ['clean', 'generate-localities', 'register-partials'], function() {
     return gulp.src('content/templates/region.hbs')
         .pipe(tap(function(file) {
             var template = handlebars.compile(file.contents.toString());
@@ -112,6 +121,50 @@ gulp.task('generate-regions', ['clean', 'register-partials'], function() {
                         }
                         if (dataOverride.planetSize) {
                             data.planetSize = dataOverride.planetSize;
+                        }
+                        if (dataOverride.title) {
+                            data.title = dataOverride.title;
+                        }
+
+                        fileContent = fileContent.slice(index + 3, fileContent.length);
+                        data.content = fileContent;
+                    }
+
+                    metadata.regions[data.name] = data;
+                    file.contents = new Buffer(fileContent, 'utf-8');
+                }))
+                .pipe(markdown())
+                .pipe(tap(function(file) {
+                    var fileName = path.basename(file.path, '.html');
+                    var data = metadata.regions[fileName];
+                    data.content = file.contents.toString();
+                    var html = template(data);
+                    file.contents = new Buffer(html, 'utf-8');
+                }))
+                .pipe(gulp.dest('docs'));
+        }));
+});
+
+gulp.task('generate-localities', ['clean', 'register-partials'], function() {
+    return gulp.src('content/templates/locality.hbs')
+        .pipe(tap(function(file) {
+            var template = handlebars.compile(file.contents.toString());
+
+            return gulp.src('content/locations/localities/**.md')
+                .pipe(tap(function(file) {
+                    var fileName = path.basename(file.path, '.md');
+                    var fileContent = file.contents.toString();
+                    var data = {
+                        content: file.contents.toString(),
+                        name: fileName,
+                        title: metadataDefaults.title,
+                        url: file.relative.replace('.md', '')
+                    };
+                    var index = fileContent.indexOf('---');
+                    if (index !== -1) {
+                        var dataOverride = JSON.parse(fileContent.slice(0, index));
+                        if (dataOverride.linkTitle) {
+                            data.linkTitle = dataOverride.linkTitle;
                         }
                         if (dataOverride.title) {
                             data.title = dataOverride.title;
