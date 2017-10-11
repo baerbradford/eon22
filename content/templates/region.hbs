@@ -20,6 +20,12 @@
                 <div class="block">
                     <div class="block-content block-content-full font-s12 text-center visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="1000">
                         {{{ content }}}
+                        <hr>
+                        <ul>
+                            {{# each localities }}
+                                {{ title }}
+                            {{/each}}
+                        </ul>
                     </div>
                 </div>
             </main>

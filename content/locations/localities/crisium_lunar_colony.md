@@ -1,4 +1,5 @@
 {
+    "region": "Moon",
     "title": "Crisium Lunar Colony"
 }
 ---

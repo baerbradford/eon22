@@ -15,6 +15,7 @@ var uglify = require('gulp-uglify');
 var webServer = require('gulp-webserver');
 
 var metadata = {
+    localities: {},
     regions: {}
 };
 var metadataDefaults = {
@@ -138,6 +139,10 @@ gulp.task('generate-regions', ['clean', 'generate-localities', 'register-partial
                     var fileName = path.basename(file.path, '.html');
                     var data = metadata.regions[fileName];
                     data.content = file.contents.toString();
+                    console.log(data.linkTitle);
+                    var localities = Object.keys(metadata.localities).map(function(key) { console.log(metadata.localities[key].region); return metadata.localities[key].region === data.linkTitle ? metadata.localities[key] : null; });
+                    localities.sort(function(a, b) { return (a.title < b.title) ? 1 : ((b.title < a.title) ? -1 : 0); });
+                    data.localities = localities;
                     var html = template(data);
                     file.contents = new Buffer(html, 'utf-8');
                 }))
@@ -166,6 +171,9 @@ gulp.task('generate-localities', ['clean', 'register-partials'], function() {
                         if (dataOverride.linkTitle) {
                             data.linkTitle = dataOverride.linkTitle;
                         }
+                        if (dataOverride.region) {
+                            data.region = dataOverride.region;
+                        }
                         if (dataOverride.title) {
                             data.title = dataOverride.title;
                         }
@@ -174,13 +182,13 @@ gulp.task('generate-localities', ['clean', 'register-partials'], function() {
                         data.content = fileContent;
                     }
 
-                    metadata.regions[data.name] = data;
+                    metadata.localities[data.name] = data;
                     file.contents = new Buffer(fileContent, 'utf-8');
                 }))
                 .pipe(markdown())
                 .pipe(tap(function(file) {
                     var fileName = path.basename(file.path, '.html');
-                    var data = metadata.regions[fileName];
+                    var data = metadata.localities[fileName];
                     data.content = file.contents.toString();
                     var html = template(data);
                     file.contents = new Buffer(html, 'utf-8');
