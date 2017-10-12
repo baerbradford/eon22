@@ -47,11 +47,9 @@ gulp.task('build', [
     'js'
 ]);
 
-gulp.task('clean', ['clean-docs'])
-
-gulp.task('clean-docs', function() {
+gulp.task('clean', function() {
     return gulp.src('docs', { read: false })
-        .pipe(clean());
+    .pipe(clean());
 });
 
 gulp.task('cname', ['clean'], function() {
