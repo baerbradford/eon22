@@ -38,6 +38,7 @@ function string_src(filename, string) {
 
 gulp.task('build', [
     'clean',
+    'cname',    
     'css',
     'homepage',
     'generate-localities',
@@ -53,10 +54,10 @@ gulp.task('clean-docs', function() {
         .pipe(clean());
 });
 
-// gulp.task('cname', ['clean'], function() {
-//     return string_src("CNAME", "eon22.com")
-//         .pipe(gulp.dest('docs/'))
-// });
+gulp.task('cname', ['clean'], function() {
+    return string_src("CNAME", "eon22.com")
+        .pipe(gulp.dest('docs/'))
+});
 
 gulp.task('css', ['clean'], function() {
     gulp.src([
