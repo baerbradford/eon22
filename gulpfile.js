@@ -22,7 +22,7 @@ var metadataDefaults = {
     title: "Eon 22"
 }
 
-function string_src(filename, string) {
+function stringSrc(filename, string) {
     var src = require('stream').Readable({ objectMode: true })
     src._read = function() {
         this.push(new gutil.File({
@@ -55,7 +55,7 @@ gulp.task('clean-docs', function() {
 });
 
 gulp.task('cname', ['clean'], function() {
-    return string_src("CNAME", "eon22.com")
+    return stringSrc("CNAME", "eon22.com")
         .pipe(gulp.dest('docs/'))
 });
 
@@ -139,10 +139,12 @@ gulp.task('generate-regions', ['clean', 'generate-localities', 'register-partial
                     var fileName = path.basename(file.path, '.html');
                     var data = metadata.regions[fileName];
                     data.content = file.contents.toString();
-                    console.log(data.linkTitle);
-                    var localities = Object.keys(metadata.localities).map(function(key) { console.log(metadata.localities[key].region); return metadata.localities[key].region === data.linkTitle ? metadata.localities[key] : null; });
-                    localities.sort(function(a, b) { return (a.title < b.title) ? 1 : ((b.title < a.title) ? -1 : 0); });
-                    data.localities = localities;
+                    var allLocalities = Object.keys(metadata.localities).map(function(key) { return metadata.localities[key]; });
+                    var regionLocalities = allLocalities.filter(function(locality) {
+                        return locality.region === data.linkTitle;
+                    });
+                    regionLocalities.sort(function(a, b) { return (a.title < b.title) ? 1 : ((b.title < a.title) ? -1 : 0); });
+                    data.localities = regionLocalities;
                     var html = template(data);
                     file.contents = new Buffer(html, 'utf-8');
                 }))
