@@ -16,6 +16,7 @@
         "fonte",
         "gutil",
         "jsvalidate",
+        "megacity",
         "rgba"
     ],
     // flagWords - list of words to be always considered incorrect
