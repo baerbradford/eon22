@@ -15,6 +15,8 @@ var uglify = require('gulp-uglify');
 var webServer = require('gulp-webserver');
 
 var metadata = {
+    decades: {},
+    events: {},
     localities: {},
     regions: {}
 };
@@ -40,9 +42,10 @@ gulp.task('build', [
     'clean',
     'cname',    
     'css',
-    'homepage',
+    'generate-decades',
     'generate-localities',
     'generate-regions',
+    'homepage',    
     'img',
     'js'
 ]);
@@ -70,7 +73,7 @@ gulp.task('css', ['clean'], function() {
 
 gulp.task('default', ['build']);
 
-gulp.task('homepage', ['clean', 'generate-regions', 'register-partials'], function() {
+gulp.task('homepage', ['clean', 'generate-decades', 'generate-regions', 'register-partials'], function() {
     return gulp.src('content/templates/index.hbs')
         .pipe(tap(function(file) {
             var template = handlebars.compile(file.contents.toString());
@@ -88,7 +91,54 @@ gulp.task('homepage', ['clean', 'generate-regions', 'register-partials'], functi
 });
 
 gulp.task('generate-decades', ['clean'], function() {
+    return gulp.src('content/templates/decade.hbs')
+        .pipe(tap(function(file) {
+            var template = handlebars.compile(file.contents.toString());
 
+            return gulp.src('content/timeline/decades/**.md')
+                .pipe(tap(function(file) {
+                    var fileName = path.basename(file.path, '.md');
+                    var fileContent = file.contents.toString();
+                    var data = {
+                        content: file.contents.toString(),
+                        linkTitle: "????",
+                        name: fileName,
+                        title: metadataDefaults.title,
+                        url: file.relative.replace('.md', '')
+                    };
+                    var index = fileContent.indexOf('---');
+                    if (index !== -1) {
+                        var dataOverride = JSON.parse(fileContent.slice(0, index));
+                        if (dataOverride.linkTitle) {
+                            data.linkTitle = dataOverride.linkTitle;
+                        }
+                        if (dataOverride.title) {
+                            data.title = dataOverride.title;
+                        }
+
+                        fileContent = fileContent.slice(index + 3, fileContent.length);
+                        data.content = fileContent;
+                    }
+
+                    metadata.decades[data.name] = data;
+                    file.contents = new Buffer(fileContent, 'utf-8');
+                }))
+                .pipe(markdown())
+                .pipe(tap(function(file) {
+                    var fileName = path.basename(file.path, '.html');
+                    var data = metadata.decades[fileName];
+                    data.content = file.contents.toString();
+                    var allEvents = Object.keys(metadata.events).map(function(key) { return metadata.events[key]; });
+                    var decadeEvents = allEvents.filter(function(event) {
+                        return event.decade === data.linkTitle;
+                    });
+                    decadeEvents.sort(function(a, b) { return (a.title < b.title) ? 1 : ((b.title < a.title) ? -1 : 0); });
+                    data.events = decadeEvents;
+                    var html = template(data);
+                    file.contents = new Buffer(html, 'utf-8');
+                }))
+                .pipe(gulp.dest('docs'));
+        }));
 });
 
 gulp.task('generate-regions', ['clean', 'generate-localities', 'register-partials'], function() {
