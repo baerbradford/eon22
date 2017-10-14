@@ -2,12 +2,15 @@ var _ = require('underscore');
 var clean = require('gulp-clean');
 var concat = require('gulp-concat');
 var cssMin = require('gulp-minify-css');
+var fileSystem = require('fs');
+var forEach = require('gulp-foreach');
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var handlebars = require('Handlebars');
 var jsValidate = require('gulp-jsvalidate');
 var markdown = require('gulp-markdown');
 var path = require('path');
+var Readable = require('stream').Readable;
 var rename = require('gulp-rename');
 var sass = require('gulp-sass');
 var tap = require('gulp-tap');
@@ -42,7 +45,7 @@ gulp.task('build', [
     'clean',
     'cname',    
     'css',
-    'generate-decades',
+    'generate-decades2',
     'generate-localities',
     'generate-regions',
     'homepage',    
@@ -73,13 +76,16 @@ gulp.task('css', ['clean'], function() {
 
 gulp.task('default', ['build']);
 
-gulp.task('homepage', ['clean', 'generate-decades', 'generate-regions', 'register-partials'], function() {
+gulp.task('homepage', ['clean', 'generate-decades2', 'generate-regions', 'register-partials'], function() {
     return gulp.src('content/templates/index.hbs')
         .pipe(tap(function(file) {
             var template = handlebars.compile(file.contents.toString());
             var regions = Object.keys(metadata.regions).map(function(key) { return metadata.regions[key]; });
             regions.sort(function(a, b) { return (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0); });
+            var decades = Object.keys(metadata.decades).map(function(key) { console.log(key); return metadata.decades[key]; });
+            decades.sort(function(a, b) { return (a.linkTitle > b.linkTitle) ? 1 : ((b.linkTitle > a.linkTitle) ? -1 : 0); });
             var html = template({
+                decades: decades,
                 regions: regions
             });
             file.contents = new Buffer(html, 'utf-8');
@@ -90,13 +96,116 @@ gulp.task('homepage', ['clean', 'generate-decades', 'generate-regions', 'registe
         .pipe(gulp.dest('docs'));
 });
 
-gulp.task('generate-decades', ['clean'], function() {
+function grabMetadata(stream, file) {
+    var fileName = path.basename(file.path, '.md');
+    var fileContent = file.contents.toString();
+    var index = fileContent.indexOf('---');
+    var fileData = {};
+
+    // Hard coded for now to see if I like this approach.
+    var templateContent = fileSystem.readFileSync('content/templates/decade.hbs', 'utf8');
+    var template = handlebars.compile(templateContent);
+
+    if (index !== -1) {
+        fileData = JSON.parse(fileContent.slice(0, index));
+        fileContent = fileContent.slice(index + 3, fileContent.length);
+        fileData.content = fileContent;
+        fileData.name = fileName;
+        fileData.url = file.relative.replace('.md', '');
+        fileData.template = template;
+    }
+    // console.log('key ' + fileData.name);
+    metadata.decades[fileData.name] = fileData;
+    file.contents = new Buffer(fileContent, 'utf-8');;
+    return stream;
+}
+
+function applyTemplate(stream, file) {
+    // console.log(file.path);
+    var fileName = path.basename(file.path, '.html');
+    // console.log(fileName);
+    var data = metadata.decades[fileName];
+    data.content = file.contents.toString();
+    console.log(data);
+    //     var allEvents = Object.keys(metadata.events).map(function(key) { return metadata.events[key]; });
+    //     var decadeEvents = allEvents.filter(function(event) {
+    //         return event.decade === data.linkTitle;
+    //     });
+    //     decadeEvents.sort(function(a, b) { return (a.title < b.title) ? 1 : ((b.title < a.title) ? -1 : 0); });
+    //     data.events = decadeEvents;
+    var html = data.template(data);
+    file.contents = new Buffer(html, 'utf-8');
+    return stream;
+}
+
+function generateDecades() {
+    var templateContent = fileSystem.readFileSync('content/templates/decade.hbs', 'utf8');
+    var template = handlebars.compile(templateContent);
+    
+    return gulp.src('content/timeline/decades/**.md')
+        .pipe(forEach(grabMetadata))
+        .pipe(markdown())
+        .pipe(forEach(applyTemplate))
+        .pipe(gulp.dest('docs'));
+            
+    //         tap(function(file, t) {
+    //     console.log(t);
+    //     var fileName = path.basename(file.path, '.md');
+    //     var fileContent = file.contents.toString();
+    //     var data = {
+    //         content: file.contents.toString(),
+    //         linkTitle: "????",
+    //         name: fileName,
+    //         title: metadataDefaults.title,
+    //         url: file.relative.replace('.md', '')
+    //     };
+    //     var index = fileContent.indexOf('---');
+    //     if (index !== -1) {
+    //         var dataOverride = JSON.parse(fileContent.slice(0, index));
+    //         if (dataOverride.linkTitle) {
+    //             data.linkTitle = dataOverride.linkTitle;
+    //         }
+    //         if (dataOverride.title) {
+    //             data.title = dataOverride.title;
+    //         }
+
+    //         fileContent = fileContent.slice(index + 3, fileContent.length);
+    //         data.content = fileContent;
+    //     }
+
+    //     console.log('d' + data.name);
+    //     metadata.decades[data.name] = data;
+    //     file.contents = new Buffer(fileContent, 'utf-8');
+    // }))
+    // .pipe(markdown())
+    // .pipe(tap(function(file) {
+    //     console.log(file.path);
+    //     var fileName = path.basename(file.path, '.html');
+    //     var data = metadata.decades[fileName];
+    //     data.content = file.contents.toString();
+    //     var allEvents = Object.keys(metadata.events).map(function(key) { return metadata.events[key]; });
+    //     var decadeEvents = allEvents.filter(function(event) {
+    //         return event.decade === data.linkTitle;
+    //     });
+    //     decadeEvents.sort(function(a, b) { return (a.title < b.title) ? 1 : ((b.title < a.title) ? -1 : 0); });
+    //     data.events = decadeEvents;
+    //     var html = template(data);
+    //     file.contents = new Buffer(html, 'utf-8');
+    //     return file.contents;
+    // }))
+    // .pipe(gulp.dest('docs'));
+}
+
+gulp.task('generate-decades2', ['clean', 'register-partials'], generateDecades);
+
+gulp.task('generate-decades', ['clean', 'register-partials'], function() {
     return gulp.src('content/templates/decade.hbs')
-        .pipe(tap(function(file) {
+        .pipe(tap(function(file) {            
             var template = handlebars.compile(file.contents.toString());
 
             return gulp.src('content/timeline/decades/**.md')
-                .pipe(tap(function(file) {
+                .pipe(tap(function(file, t) {
+                    console.log(t);
                     var fileName = path.basename(file.path, '.md');
                     var fileContent = file.contents.toString();
                     var data = {
@@ -120,11 +229,13 @@ gulp.task('generate-decades', ['clean'], function() {
                         data.content = fileContent;
                     }
 
+                    console.log('d' + data.name);
                     metadata.decades[data.name] = data;
                     file.contents = new Buffer(fileContent, 'utf-8');
                 }))
                 .pipe(markdown())
                 .pipe(tap(function(file) {
+                    console.log(file.path);
                     var fileName = path.basename(file.path, '.html');
                     var data = metadata.decades[fileName];
                     data.content = file.contents.toString();
@@ -136,6 +247,7 @@ gulp.task('generate-decades', ['clean'], function() {
                     data.events = decadeEvents;
                     var html = template(data);
                     file.contents = new Buffer(html, 'utf-8');
+                    return file.contents;
                 }))
                 .pipe(gulp.dest('docs'));
         }));
@@ -269,7 +381,7 @@ gulp.task('js', ['clean'], function() {
         .pipe(gulp.dest('docs'));
 });
 
-gulp.task('register-partials', [], function() {
+gulp.task('register-partials', ['clean'], function() {
     return gulp.src('content/templates/partials/**.hbs')
         .pipe(tap(function(file) {
             var fileBaseName = path.basename(file.path, '.hbs');

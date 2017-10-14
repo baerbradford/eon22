@@ -183,42 +183,11 @@
                             </div>
                             <div class="block-content overflow-hidden">
                                 <div class="row items-push">
-                                    <div class="col-xs-6 visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="300">
-                                        <div class="font-s24 font-w300 text-white-op">2020 [<span class="text-success">0</span>]</div>
-                                    </div>
-                                    <div class="col-xs-6 visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="500">
-                                        <div class="font-s24 font-w300 text-white-op">2030 [<span class="text-success">0</span>]</div>
-                                    </div>
-                                    <div class="col-xs-6 visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="700">
-                                        <div class="font-s24 font-w300 text-white-op">2040 [<span class="text-success">0</span>]</div>
-                                    </div>
-                                    <div class="col-xs-6 visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="900">
-                                        <div class="font-s24 font-w300 text-white-op">2050 [<span class="text-success">0</span>]</div>
-                                    </div>
-                                    <div class="col-xs-6 visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="1100">
-                                        <div class="font-s24 font-w300 text-white-op">2060 [<span class="text-success">0</span>]</div>
-                                    </div>
-                                    <div class="col-xs-6 visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="1300">
-                                        <div class="font-s24 font-w300 text-white-op">2070 [<span class="text-success">0</span>]</div>
-                                    </div>
-                                    <div class="col-xs-6 visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="1100">
-                                        <div class="font-s24 font-w300 text-white-op">2080 [<span class="text-success">0</span>]</div>
-                                    </div>
-                                    <div class="col-xs-6 visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="1300">
-                                        <div class="font-s24 font-w300 text-white-op">2090 [<span class="text-success">0</span>]</div>
-                                    </div>
-                                    <div class="col-xs-6 visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="1100">
-                                        <div class="font-s24 font-w300 text-white-op">2100 [<span class="text-success">0</span>]</div>
-                                    </div>
-                                    <div class="col-xs-6 visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="1300">
-                                        <div class="font-s24 font-w300 text-white-op">2110 [<span class="text-success">0</span>]</div>
-                                    </div>
-                                    <div class="col-xs-6 visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="1100">
-                                        <div class="font-s24 font-w300 text-white-op">2120 [<span class="text-success">0</span>]</div>
-                                    </div>
-                                    <div class="col-xs-6 visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="1300">
-                                        <div class="font-s24 font-w300 text-white-op">2130 [<span class="text-success">0</span>]</div>
-                                    </div>
+                                    {{# each decades }}
+                                        <div class="col-xs-6 visibility-hidden" data-toggle="appear" data-class="animated fadeIn" data-timeout="300">
+                                            <div class="font-s24 font-w300 text-white-op"><a href="{{url}}">{{linkTitle}}</a> [<span class="text-success">0</span>]</div>
+                                        </div>
+                                    {{/each}}
                                 </div>
                             </div>
                         </div>
