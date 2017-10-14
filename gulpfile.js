@@ -87,6 +87,10 @@ gulp.task('homepage', ['clean', 'generate-regions', 'register-partials'], functi
         .pipe(gulp.dest('docs'));
 });
 
+gulp.task('generate-decades', ['clean'], function() {
+
+});
+
 gulp.task('generate-regions', ['clean', 'generate-localities', 'register-partials'], function() {
     return gulp.src('content/templates/region.hbs')
         .pipe(tap(function(file) {
