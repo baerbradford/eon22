@@ -1,7 +1,6 @@
 {
     "category": "Moon",
     "linkTitle": "Crisium Lunar Colony",
-    "region": "Moon",
     "template": "locality",
     "title": "Eon 22 - Crisium Lunar Colony"
 }

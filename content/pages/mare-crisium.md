@@ -1,7 +1,6 @@
 {
     "category": "Moon",
     "linkTitle": "Mare Crisium",
-    "region": "Moon",
     "template": "locality",
     "title": "Eon 22 - Mare Crisium"
 }
