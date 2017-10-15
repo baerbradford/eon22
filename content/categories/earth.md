@@ -3,6 +3,7 @@
     "planetColor": "#3673cc",
     "planetSize": 51,
     "planetLineWidth": 22,
+    "template": "region",
     "title": "Eon 22 - Earth"
 }
 ---

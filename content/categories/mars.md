@@ -3,6 +3,7 @@
     "planetColor": "#c07635",
     "planetSize": 27,
     "planetLineWidth": 12,
+    "template": "region",
     "title": "Eon 22 - Mars"
 }
 ---
