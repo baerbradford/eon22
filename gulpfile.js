@@ -174,6 +174,12 @@ function homepage() {
             });
             var html = template({
                 decades: decades,
+                objectCount: allContent.filter(function (content) {
+                    return content.template === 'object';
+                }).length,
+                peopleCount: allContent.filter(function (content) {
+                    return content.template === 'person';
+                }).length,
                 regions: regions
             });
             file.contents = new Buffer(html, 'utf-8');

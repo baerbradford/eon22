@@ -6,31 +6,4 @@ Eon 22 details the history, geography, and people of this fictional universe.
 
 If you are you looking to read science fiction short stories, get inspiration for a world of your own, or find a setting for role your playing games, you have made to the right place.
 
-## Media
-
-### Short Stories
-
-[Alex's Discovery](/media/short_stories/alexs_discovery)
-
-## Universe
-
-### Events and Timeline
-  
-[Timeline](/events/timeline)
-
-### Groups, Factions, and Organizations
-
-### Locations
-
-* [The Moon](/locations/moon)
-    * [Crisium Lunar Colony](/locations/crisium_lunar_colony)
-
-### Objects
-
-* [MIC 5](/objects/mic5)
-
-### People
-
-* [Alex da Fonte](/people/alex_da_fonte)
-
-### Species
+[See Eon 22](eon22.com)
