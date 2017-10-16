@@ -1,5 +1,8 @@
----
-permalink: media/short_stories/alexs_discovery
+{
+    "linkTitle": "Alex's Discovery",
+    "template": "short-story",
+    "title": "Eon 22 - Alex's Discovery"
+}
 ---
 
 # Alex's Discovery
@@ -7,7 +10,7 @@ permalink: media/short_stories/alexs_discovery
 A teenaged boy grows up on the moon.
 One of the first generations to be born and die on the moon, he is the son of a wealthy entrepreneur.
 He has his own personal robot which acts as a companion.
-The robot, [Michelle](/objects/mic5#michelle) acts as a teacher, protector, parent, and personal assistant.
+The robot, [Michelle](/mic5#michelle) acts as a teacher, protector, parent, and personal assistant.
 
 ## Chapters
 
