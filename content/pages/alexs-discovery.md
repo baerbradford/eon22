@@ -12,9 +12,7 @@ One of the first generations to be born and die on the moon, he is the son of a 
 He has his own personal robot which acts as a companion.
 The robot, [Michelle](/mic5#michelle) acts as a teacher, protector, parent, and personal assistant.
 
-## Chapters
-
-### The Big One-Oh
+## The Big One-Oh
 
 "Alex, it's time to wake up."
 
@@ -41,6 +39,20 @@ There didn't seem to be much out there...
 Still lingering, she snapped him back to reality.
 Let the boy have his moment but keep him on track.
 
+Alex turned to face Michelle.
+She had laid out clothes for the day on his bed, and his pad was ready on the stand next to it.
+She was always so considerate.
+With her encouragement, he quickly got ready.
+The door opened with a *whoosh*; he and Michelle were immediately upon the living room.
+Alex's father, Marcel, stood in the kitchen and greeted him excitedly, "Hey, bud!"
+
+"Where's Mom?" Alex asked eyeing the breakfast prepared by his father.
+
+"She's still getting ready. She should be in here soon. We got you a great present this year." Hoping to win Alex over, he gestured toward the table a few feet over. Atop the table sat some sort of mysterious bulge covered with a table cloth. Excitement arose in Alex and he wondered what it could be. He took a few steps closer and Marcel warned, "You need to wait until your mother is here, though. She'll want to see you open it."
+
+Disappointed, Alex turned back toward the kitchen to get a plate.
+He knew it would be more than a few minutes.
+His mother always took her time getting ready, especially took her time when others were waiting on her, and ESPECIALLY took her time when some exciting was about to happen.
 * Establish setting.
 * Well-to-do high population city on the moon.
 * May 2111.

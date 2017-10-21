@@ -11,13 +11,7 @@
 
 ## Overview
 
-Born in [Crisium](/crisium-lunar-colony) on [May 17, 2091](/2090) to a wealthy family. He never travels to Earth.
- 
-### Personality
-
-### Abilities
-
-### History
+Born in [Crisium](/crisium-lunar-colony) on [May 17, 2091](/2090) to a wealthy family. His father was [Marcel da Fonte](/marcel-da-fonte), an important found of Crisium. He never travels to Earth.
 
 ## Biography
 
@@ -25,46 +19,29 @@ Born in [Crisium](/crisium-lunar-colony) on [May 17, 2091](/2090) to a wealthy f
 
 Family friends with Lila Peres.
 
-### Alex’s Discovery (Short Story; Ages 10-13)
+### [Alex’s Discovery (Short Story; Ages 10-13)](/alexs-discovery)
+
+A teenaged boy grows up on the moon.
+One of the first generations to be born and die on the moon, he is the son of a wealthy entrepreneur.
+He has his own personal robot which acts as a companion.
+The robot, [Michelle](/mic5#michelle) acts as a teacher, protector, parent, and personal assistant.
 
 ### Teenager
 
+Alex gets out into the "world".
+
 ### Adulthood
 
+Alex dies during the conflict between corporations and Earth-based governments in his early twenties.
+
 ## Characteristics
-
-### Appearance and Fashion
-
-### Abilities
 
 ### Weaknesses
 
 Alex suffers from cyclothymia and substance abuse (later in life).
 
-## Legacy
-
-## Relationships
-
-### Romantic
-
-### Friendships
-
-### Family
-
-### Adversaries
-
-### Group Affiliations
-
 ## Themes and Symbolism
 
 ### Themes
 
-Spoiled Innocence 
-
-### Symbolism
-
-### Gallery and Quotes
-
-### Trivia
-
-### See Also
+Spoiled Innocence
